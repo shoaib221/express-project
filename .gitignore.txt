@@ -1,0 +1,34 @@
+# Node.js dependencies
+/node_modules
+
+# Environment variables file
+.env
+.env.*
+!.env.example
+
+# Debug log file
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Build output
+/dist
+/build
+
+# IDE and OS files
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+._*
+.DS_Store
+Thumbs.db
+
+# Coverage directory
+/coverage
+
+# Optional: Logs directory
+/logs
