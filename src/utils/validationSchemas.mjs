@@ -1,3 +1,5 @@
+
+
 export const createUserValidationSchema = {
 	username: {
 		isLength: {
@@ -21,4 +23,31 @@ export const createUserValidationSchema = {
 	password: {
 		notEmpty: true,
 	},
+};
+
+export const createBookSchema = { 
+	title: { 
+		notEmpty: { 
+			errorMessage: "Title cannot be empty", 
+		}, 
+		isString: { 
+			errorMessage: "Title must be a string!", 
+		} 
+	}, 
+	author: { 
+		notEmpty: { 
+			errorMessage: "Author cannot be empty", 
+		}, 
+		isString: { 
+			errorMessage: "Author must be a string!", 
+		} 
+	},
+	description : { 
+		notEmpty: { 
+			errorMessage: "Description cannot be empty", 
+		}, 
+		isString: { 
+			errorMessage: "Description must be a string!", 
+		}
+	}
 };

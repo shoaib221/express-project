@@ -8,7 +8,8 @@ import { testmw2 } from "../utils/middlewares.mjs";
 export const routes = Router();
 
 routes.use( testmw2 );
-routes.use( bookRouter );
+
 routes.use( testRouter );
 
 
+routes.use( bookRouter );
