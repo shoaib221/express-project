@@ -18,9 +18,9 @@ export const createBook = async ( request, response ) => {
 	const newBook = new Books(data); 
 	
 	try { 
-		const savedUser = await newBook.save(); 
+		const savedBook = await newBook.save(); 
 		console.log( "Book created" ); 
-		return response.status(201).send(savedUser); 
+		return response.status(201).send(savedBook); 
 	} 
 	catch(error) 
 	{ 

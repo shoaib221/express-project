@@ -1,5 +1,6 @@
 
 
+import { request, response } from "express";
 import { mockUsers } from "./constants.mjs";
 
 
@@ -30,6 +31,12 @@ export const testmw2 = ( request, response, next ) => {
 export const testmw3 = ( request, response, next ) => {
 	console.log( " test middleware 3 " );
 
+	next();
+};
+
+export const UserOnly = ( request, response, next ) => {
+	if( !request.session.user ) 
+		return response.status(400).send({"error": "Authentication required"});
 	next();
 };
 
