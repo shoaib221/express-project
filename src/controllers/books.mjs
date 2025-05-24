@@ -6,6 +6,7 @@ import { hashPassword } from "../utils/helpers.mjs";
 import { Books } from "../schemas/books.mjs"; 
 
 
+
 export const createBook = async ( request, response ) => { 
 
     const vresult = validationResult(request); 
@@ -31,14 +32,16 @@ export const createBook = async ( request, response ) => {
 
 
 export const AllBooks = async ( request, response ) => {
+    console.log("all books");
 	try {
 		const fetchedBooks = await Books.find({});
-		console.log("successful");
-		
-		return response.status(200).send(fetchedBooks);
+		console.log(fetchedBooks);
+        
+        console.log( new Date().toLocaleString() );
+		return response.status(200).json(fetchedBooks);
 	} catch (error) {
-		console.log("failed");
-		return response.sendStatus(400);
+		console.log("failed to fetch from database");
+		return response.status(400).json(error);
 	}
 }; 
 

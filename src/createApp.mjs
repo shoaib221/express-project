@@ -1,6 +1,6 @@
 
 
-import express from "express";
+import express, { request } from "express";
 import cookieParser from "cookie-parser";
 import session from "express-session";
 import passport from "passport";
@@ -8,9 +8,11 @@ import MongoStore from "connect-mongo";
 import mongoose from "mongoose";
 
 
+
 import { routes } from "./routes/index.mjs";
 import "./strategies/local-strategy.mjs";
 import { testmw1 } from "./utils/middlewares.mjs";
+
 
 
 export function createApp() {
@@ -18,6 +20,8 @@ export function createApp() {
 	app.use(testmw1);
 	app.use(express.json());
 	app.use(cookieParser("take"));
+
+	
 	
 	app.use(
 		session({

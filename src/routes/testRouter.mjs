@@ -8,7 +8,7 @@ export const testRouter = Router()
 const hour1 = 1000 * 60 * 60;
 const minute1 = 1000 * 60;
 
-testRouter.get( "/test/cookie", 
+testRouter.get( "/cookie", 
     ( request, response ) => {
         console.log( request.headers );        
         console.log( request.signedCookies );
@@ -18,7 +18,7 @@ testRouter.get( "/test/cookie",
     }
 )
 
-testRouter.get( "/test/empty",
+testRouter.get( "/empty",
     ( request, response ) => {
         console.log( request.cookies );
         return response.sendStatus(201);
@@ -26,7 +26,7 @@ testRouter.get( "/test/empty",
 )
 
 
-testRouter.get( "/test/session",
+testRouter.get( "/session",
     ( request, response ) => {
         console.log(request.session);
         console.log(request.session.id);
@@ -48,7 +48,7 @@ testRouter.get( "/test/session",
 to the client. Whenever that client sends request with that session id express.session() 
 attaches corresponding data with the request */
 
-testRouter.post( "/test/register",
+testRouter.post( "/register",
     body( "username" ).notEmpty().withMessage("Username cannot be empty"),
     body( "password" ).notEmpty().withMessage("Password cannot be empty"),
     async ( request, response ) => {
@@ -72,7 +72,7 @@ testRouter.post( "/test/register",
     }
 );
 
-testRouter.post( "/test/login",
+testRouter.post( "/login",
     body( "username" ).notEmpty().withMessage("Username cannot be empty"),
     body( "password" ).notEmpty().withMessage("Password cannot be empty"),
     async ( request, response ) => {
@@ -108,7 +108,7 @@ testRouter.post( "/test/login",
 
 testRouter.use(UserOnly);
 
-testRouter.get( "/test/profile",
+testRouter.get( "/profile",
     async (request, response) => {
         const { id } = request.session.user;
         try {
@@ -120,7 +120,7 @@ testRouter.get( "/test/profile",
     }
 );
 
-testRouter.get( "/test/logout",
+testRouter.get( "/logout",
     async (request, response) => {
         request.session.destroy((err) => {
             if (err) {
@@ -131,3 +131,4 @@ testRouter.get( "/test/logout",
         });
     }   
 );
+
