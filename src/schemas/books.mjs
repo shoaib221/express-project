@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 
+
 const BooksSchema = new mongoose.Schema({
 	title: {
 		type: mongoose.Schema.Types.String,
@@ -10,4 +11,7 @@ const BooksSchema = new mongoose.Schema({
 	description: mongoose.Schema.Types.String
 });
 
+
+
 export const Books = mongoose.model("Books", BooksSchema);
+
