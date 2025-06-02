@@ -30,14 +30,7 @@ testRouter.get( "/session",
     ( request, response ) => {
         console.log(request.session);
         console.log(request.session.id);
-        console.log(request.sessionStore);
-        request.sessionStore.get(request.session.id, (error, sessionData) => {
-            if(error) 
-            {
-                return response.status(400).send(error);
-            }
-            console.log(sessionData);
-        });
+        
         request.session.visited=true;
         return response.sendStatus(200);
 
